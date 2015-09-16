@@ -1,3 +1,5 @@
+package clientServer;
+
 import java.net.Socket;
 import java.net.ServerSocket;
 import java.io.BufferedReader;

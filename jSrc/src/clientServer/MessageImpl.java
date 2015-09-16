@@ -1,3 +1,6 @@
+package clientServer;
+
+import clientServer.Message;
 import java.io.Serializable;
 
 public class MessageImpl implements Message, Serializable{

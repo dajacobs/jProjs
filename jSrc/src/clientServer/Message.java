@@ -1,3 +1,5 @@
+package clientServer;
+
 public interface Message {
     public void setCounts();
     public int getCharacterCount();
