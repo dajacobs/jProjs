@@ -24,7 +24,6 @@ public class Barber extends Thread {
             }
         }
     }
-
     private void cutHair() {
         System.out.println("The barber is cutting hair.");
         try {
