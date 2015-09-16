@@ -1,2 +1,2 @@
-# clienServ
-Client-server application using Java sockets.
+# Info
+Applications using Java with Netbeans.
