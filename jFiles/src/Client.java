@@ -8,7 +8,7 @@ public class Client {
     public static final String host = "127.0.0.1";
     
     public static void main(String[] args) throws IOException {
-        Socket sck;
+        Socket sck = null;
         if(args.length != 1) {
             System.err.println("There is no input, 0 or more than 1 argument");
         } else {
@@ -17,7 +17,7 @@ public class Client {
                 PrintWriter pw = new PrintWriter(sck.getOutputStream(), true);
                 pw.println(args[0]);
                 
-                ObjectInputStream ois = new ObjectInputStream(sck.getInputStream);
+                ObjectInputStream ois = new ObjectInputStream(sck.getInputStream());
                 
                 Message mssg = (Message) ois.readObject();
                 System.out.println(mssg.getCharacterCount());
