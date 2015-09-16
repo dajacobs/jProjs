@@ -11,7 +11,13 @@ public class MessageImpl implements Message, Serializable{
 
     @Override
     public void setCounts() {
-        
+        for(int i = 0; i < message.length(); i++) {
+            if(Character.isDigit(message.charAt(i))) {
+                ++digitCount;
+            } else if(Character.isLetter(message.charAt(i))) {
+                ++characterCount;
+            }
+        }
     }
 
     @Override
