@@ -16,7 +16,7 @@ public class Banker {
     
     
     /**
-     *  New bank constructor with resources
+     *  New bank constructor with resources.
      * @param resources
      **/
     public Banker(int resources[]) {
@@ -26,5 +26,19 @@ public class Banker {
         maximum = new int[CUSTOMER][];
         allocation = new int[CUSTOMER][];
         need = new int[CUSTOMER][];
+    }
+    
+    /**
+     * Invoked by a thread when it enters the system.
+     * Max demand with the bank is also recorded.
+     * @param threadNum
+     * @param maxDemand
+     **/
+    public void addCustomer(int threadNum, int maxDemand[]) {
+        maximum[threadNum] = new int[resource];
+        allocation[threadNum] = new int[resource];
+        need[threadNum] = new int[resource];
+        System.arraycopy(maxDemand, 0, maximum[threadNum], 0, maxDemand.length);
+        System.arraycopy(maxDemand, 0, need[theadNum], 0, maxDemand.length);
     }
 }
