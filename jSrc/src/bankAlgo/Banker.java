@@ -41,4 +41,40 @@ public class Banker {
         System.arraycopy(maxDemand, 0, maximum[threadNum], 0, maxDemand.length);
         System.arraycopy(maxDemand, 0, need[theadNum], 0, maxDemand.length);
     }
+    
+    /**
+     * The thread state is output.
+     **/
+    public void getState() {
+        System.out.print("Available = \t[");
+        for(int i = 0; i < resource - 1; i++) { 
+            System.out.print(available[i] + " "); 
+        }
+        System.out.println(available[resource - 1] + "]");
+        System.out.print("\nAllocation = \t");
+        for(int i = 0; i < CUSTOMER; i++) {
+            System.out.print("[");
+            for(int j = 0; j < resource - 1; j++) { 
+                System.out.print(allocation[i][j] + " "); 
+            }
+            System.out.print(allocation[i][resource - 1] + "]");
+        }
+        System.out.print("\nMax = \t\t");
+        for(int i = 0; i < CUSTOMER; i++) {
+            System.out.print("[");
+            for(int j = 0; j < resource - 1; j++) { 
+                System.out.print(maximum[i][j] + " "); 
+            }
+            System.out.print(maximum[i][resource - 1]+"]");
+        }
+        System.out.print("\nNeed = \t\t");
+        for(int i = 0; i < CUSTOMER; i++) {
+            System.out.print("[");
+            for(int j = 0; j < resource - 1; j++) { 
+                System.out.print(need[i][j]+" "); 
+            }
+            System.out.print(need[i][resource - 1]+"]");
+        }
+        System.out.println();
+    }
 }
