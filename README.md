@@ -1,9 +1,8 @@
 # jProjs
 # Info
-Applications using Java with Netbeans.
-# Client-Server application using Java sockets.
+# Client-Server application.
 `package clientServer`
-# Implementation of Sleeping Barber problem.
+# Sleeping Barber problem.
 `package sleepBarber`
-# Implementation of a Banker's Algorithm.
+# Banker's Algorithm.
 `package bankerAlgo`
