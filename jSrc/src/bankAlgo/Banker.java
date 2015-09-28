@@ -174,4 +174,26 @@ public class Banker {
         System.out.print("]");
         return true;
     }
+    
+    /**
+     * Release resources.
+     * @param threadNum
+     * @param release
+     **/
+    public synchronized void releaseResources(int threadNum, int release[]) {
+        System.out.print("\n Customer # " + threadNum + " releasing ");
+        for (int i = 0; i < resource; i++) { 
+            System.out.print(release[i] + " "); 
+        }
+        for (int i = 0; i < resource; i++) {
+            available[i] += release[i];
+            allocation[threadNum][i] -= release[i];
+            need[threadNum][i] = maximum[threadNum][i] + allocation[threadNum][i];
+        }
+        System.out.print("Available = ");
+        for (int i = 0; i < resource; i++) { System.out.print(available[i] + "  "); }
+        System.out.print("Allocated = [");
+        for (int i = 0; i < resource; i++) { System.out.print(allocation[threadNum][i] + "  "); }
+        System.out.print("]");
+    }
 }
