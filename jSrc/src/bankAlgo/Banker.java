@@ -1,28 +1,30 @@
 package bankAlgo;
 
-import java.util.Scanner;
-
 public class Banker {
-    private int min[][];
-    private int max[][];
-    private int allocate[][];
-    private int available[][];
-    private int numbProc;
-    private int numbReso;
+    public static final int CUSTOMER = 5;
     
-    private void input() {
-        Scanner scan = new Scanner(System.in);
-        
-        System.out.print("Enter number of processes and resources: ");
-        numbProc = scan.nextInt();
-        numbReso = scan.nextInt();
-        
-        min = new int[numbProc][numbReso];
-        max = new int[numbProc][numbReso];
-        allocate = new int[numbProc][numbReso];
-        available = new int[1][numbReso];
-        
-        System.out.println("Enter allocate values: ");
-        
+    // Number of resources
+    private final int resource;     
+    // Number of each resource
+    private final int[] available;
+    // Demand of each thread
+    private final int[][] maximum;
+    // Number allowed to each thread
+    private final int[][] allocation;
+    // Remainder of each thread
+    private final int[][] need;
+    
+    
+    /**
+     *  New bank constructor with resources
+     * @param resources
+     **/
+    public Banker(int resources[]) {
+        resource = resources.length;
+        available = new int[resource];
+        System.arraycopy(resources, 0, available, 0, resource);
+        maximum = new int[CUSTOMER][];
+        allocation = new int[CUSTOMER][];
+        need = new int[CUSTOMER][];
     }
 }
