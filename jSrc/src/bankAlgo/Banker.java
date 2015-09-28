@@ -82,7 +82,7 @@ public class Banker {
      * Determines whether granting a request results in leaving
      * the system in a safe state or not.
      * @return  true - the system is in a safe state
-     */
+     **/
     private boolean isSafeState (int threadNum, int request[]) {
         System.out.print("\n Customer # " + threadNum + " requesting ");
         for (int i = 0; i < resource; i++) { 
@@ -147,5 +147,31 @@ public class Banker {
             }
         }
         return returnValue;
+    }
+    
+    /**
+     * Request for resources.
+     * Blocking method returns when the request can safely be satisfied.
+     * @param request
+     * @param threadNum
+     * @return  true - the request is granted.
+     **/
+    public synchronized boolean requestResources(int threadNum, int[] request) {
+        if (!isSafeState(threadNum,request)) { 
+            return false; 
+        }
+        // If it is safe, allocate the resources
+        for (int i = 0; i < resource; i++) {
+            available[i] -= request[i];
+            allocation[threadNum][i] += request[i];
+            need[threadNum][i] = maximum[threadNum][i] - allocation[threadNum][i];
+        }
+        System.out.println("Customer # " + threadNum + " using resources.");
+        System.out.print("Available = ");
+        for (int i = 0; i < resource; i++) { System.out.print(available[i] + "  "); }
+        System.out.print("Allocated = [");
+        for (int i = 0; i < resource; i++) { System.out.print(allocation[threadNum][i] + "  "); }
+        System.out.print("]");
+        return true;
     }
 }
