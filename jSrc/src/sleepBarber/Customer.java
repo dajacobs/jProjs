@@ -9,6 +9,11 @@ public class Customer extends Thread {
     int id;
     boolean notCut = true;
     
+    // Customer constructor
+    public Customer(int i) {
+        id = i;
+    }
+    
     @Override
     public void run() {
         while(notCut) {
