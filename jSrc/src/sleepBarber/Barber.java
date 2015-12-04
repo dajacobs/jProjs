@@ -32,4 +32,18 @@ public class Barber extends Thread {
             
         }
     }
+    public static void main(String[] args) {
+        Barber newBarb = new Barber();
+        newBarb.start();
+        
+        for(int i = 1; i < 16; i++) {
+            Customer newCust = new Customer(i);
+            newCust.start();
+            try {
+                sleep(2000);
+            } catch (InterruptedException ex) {
+                
+            }
+        }
+    }
 }
